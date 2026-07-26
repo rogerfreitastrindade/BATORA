@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-fundo: #0b1220;
+  --color-superficie: #121c30;
+  --color-superficie-2: #1a2740;
+  --color-borda: #24324d;
+  --color-texto: #f1f5f9;
+  --color-suave: #9fb0c9;
+  --color-primaria: #3b82f6;
+  --color-primaria-forte: #1e40af;
+  --color-cta: #f59e0b;
+  --color-cta-texto: #1a1200;
+  --color-ok: #22c55e;
+  --color-perigo: #ef4444;
+  --font-sans: var(--font-fira-sans), system-ui, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  color-scheme: dark;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* iPhone: fontes menores que 16px em campos fazem o Safari dar zoom ao focar */
+input,
+select,
+textarea {
+  font-size: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-fundo);
+  color: var(--color-texto);
+  font-family: var(--font-sans);
+  touch-action: manipulation; /* bloqueia zoom por duplo toque no celular */
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+input,
+select,
+textarea {
+  color-scheme: dark;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--color-primaria);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Impressão do ticket: folha A4 com 2 vias                            */
+/* ------------------------------------------------------------------ */
+@page {
+  size: A4 portrait;
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  .nao-imprimir {
+    display: none !important;
+  }
+  .folha-ticket {
+    display: block !important;
+    position: absolute;
+    inset: 0;
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 !important;
+    padding: 10mm 12mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+  }
 }

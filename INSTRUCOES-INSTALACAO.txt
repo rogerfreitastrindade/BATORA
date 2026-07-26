@@ -1,0 +1,46 @@
+========================================
+ BATORA — BALANÇA DO BARREIRO
+ COMO INSTALAR EM OUTRO COMPUTADOR
+========================================
+
+1) INSTALE O NODE.JS (se ainda não tiver)
+   - Acesse: https://nodejs.org
+   - Baixe a versão LTS e instale (avançar, avançar, concluir)
+
+2) DESCOMPACTE ESTE ZIP
+   - Extraia a pasta BATORA para onde quiser
+     (ex.: Documentos\BATORA)
+
+3) ABRA O TERMINAL DENTRO DA PASTA
+   - Windows: abra a pasta BATORA, clique na barra de
+     endereço, digite "cmd" e aperte Enter
+   - Mac: botão direito na pasta > Serviços >
+     "Nova janela de Terminal na pasta"
+
+4) INSTALE AS DEPENDÊNCIAS (só na primeira vez)
+   Digite e aperte Enter:
+
+   npm install
+
+   (aguarde terminar, pode levar alguns minutos)
+
+5) INICIE O SISTEMA
+   Digite e aperte Enter:
+
+   npm run dev
+
+6) ABRA NO NAVEGADOR
+   http://localhost:3000
+
+7) FAÇA LOGIN
+   Senha: batora2026
+
+----------------------------------------
+Para usar no dia a dia: repita apenas os
+passos 3, 5 e 6 (o npm install é só uma vez).
+
+O banco de dados com todas as pesagens fica
+na pasta "data" (arquivo batora.db).
+IMPORTANTE: os dados NÃO sincronizam entre
+computadores — cada PC tem seu próprio banco.
+========================================
